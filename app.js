@@ -151,6 +151,9 @@ function renderToday() {
   const cfg = state.config;
   const hasAnyLog = !!state.log[dayKey] && Object.keys(state.log[dayKey]).length > 0;
 
+  const previousScroll = root.querySelector('.meals-scroll');
+  const scrollTop = previousScroll ? previousScroll.scrollTop : 0;
+
   const mealsHtml = cfg.meals
     .slice()
     .sort((a, b) => a.order - b.order)
@@ -178,6 +181,9 @@ function renderToday() {
   });
 
   attachPortionHandlers(root, dayKey);
+
+  const newScroll = root.querySelector('.meals-scroll');
+  if (newScroll) newScroll.scrollTop = scrollTop;
 }
 
 function renderMealBlock(dayKey, meal) {
