@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'eatin-v1';
+const CACHE_VERSION = 'eatin-v2';
 
 const ASSETS = [
   './',
